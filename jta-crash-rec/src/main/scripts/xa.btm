@@ -51,38 +51,5 @@ AT ENTRY
 # if there are 2 XA resources per txn then set the countDown such that during
 # the VM will halt when the 2nd participant is asked to commit
 IF TRUE
-DO traceln("Starting countdown at 1"), createCountDown("xahalt",1)
+DO debug("killing JVM"), killJVM()
 ENDRULE
- 
-########################################################################
-#
-# Rule to halt the JVM when an XA resource executes phase 2 of an atomic transaction
-# (There is a 1 second delay before halting the JVM to provide confidence that the first
-# resource has had time to commit).
-#
-RULE Generate an XA Recovery Record
-CLASS com.arjuna.ats.internal.jta.resources.arjunacore.XAResourceRecord
-METHOD topLevelCommit
-AT ENTRY
-BIND xares = $0;
-jndiName:String = xares.getJndiName();
-# if the count down started at 2 and there are 2 XA resources then it should fire when the
-# second participant commits
-IF countDown("xahalt")
-DO traceln("***** topLevelCommit: Halting for an hour for " + jndiName), delay(3600000)
-ENDRULE
-
-########################################################################
-#
-# Rule to trace when XA resources execute phase 2 of an atomic transaction
-#
-RULE Trace topLevelCommit (phase 2 of a 2PC transaction)
-CLASS com.arjuna.ats.internal.jta.resources.arjunacore.XAResourceRecord
-METHOD topLevelCommit
-AT ENTRY
-BIND xares = $0;
-jndiName:String = xares.getJndiName();
-IF TRUE
-DO traceln("********* topLevelCommit for " + jndiName)
-ENDRULE
-
