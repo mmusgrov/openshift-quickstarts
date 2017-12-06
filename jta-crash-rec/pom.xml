@@ -42,7 +42,7 @@
         in the Development Guide for Red Hat JBoss Enterprise Application Platform located here:
 
         https://access.redhat.com/documentation/en/jboss-enterprise-application-platform/
-    -->
+
     <repositories>
         <repository>
             <id>jboss-enterprise-maven-repository</id>
@@ -68,7 +68,7 @@
             </snapshots>
         </pluginRepository>
     </pluginRepositories>
-
+-->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
@@ -77,13 +77,13 @@
         <version.war.plugin>2.1.1</version.war.plugin>
 
         <!-- dependency versions -->
-        <version.javax.enterprise.cdi-api>1.2.0.redhat-2</version.javax.enterprise.cdi-api>
-        <version.javax.persistence.jpa-2.1-api>1.0.0.Final-redhat-1</version.javax.persistence.jpa-2.1-api>
-        <version.javax.ejb.ejb-api_3.2>1.0.0.Final-redhat-1</version.javax.ejb.ejb-api_3.2>
-        <version.javax.jms.jms-api_2.0>1.0.1.Final-redhat-1</version.javax.jms.jms-api_2.0>
-        <version.javax.transaction.transaction-api_1.2>1.0.0.Final-redhat-1</version.javax.transaction.transaction-api_1.2>
-        <version.javax.annotation.annotations-api_1.2>1.0.0.Final-redhat-1</version.javax.annotation.annotations-api_1.2>
-        <version.javax.servlet.servlet-api_3.1>1.0.0.Final-redhat-1</version.javax.servlet.servlet-api_3.1>
+        <version.javax.enterprise.cdi-api>1.2</version.javax.enterprise.cdi-api>
+        <version.javax.persistence.jpa-2.1-api>1.0.0.Final</version.javax.persistence.jpa-2.1-api>
+        <version.javax.ejb.ejb-api_3.2>1.0.0.Final</version.javax.ejb.ejb-api_3.2>
+        <version.javax.jms.jms-api_2.0>1.0.1.Final</version.javax.jms.jms-api_2.0>
+        <version.javax.transaction.transaction-api_1.2>1.0.0.Final</version.javax.transaction.transaction-api_1.2>
+        <version.javax.annotation.annotations-api_1.2>1.0.0.Final</version.javax.annotation.annotations-api_1.2>
+        <version.javax.servlet.servlet-api_3.1>1.0.0.Final</version.javax.servlet.servlet-api_3.1>
 
         <version.byteman>3.0.10</version.byteman>
 
